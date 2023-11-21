@@ -13,6 +13,7 @@ namespace HIMS_MASTERDATA.ViewModel
         public int FacilityCount { get; set; }
         public string CreatedBy { get; set; }
         public string CreatedDate { get; set; }
+        public string organizationimage { get; set; }
 
     }
 }

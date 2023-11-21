@@ -1051,7 +1051,9 @@ namespace HIMS_MASTERDATA.Repository
                                   {
                                       OrganizationId = x.OrganizationId,
                                       Organization = x.OrganizationName,
-                                      Address = x.Address
+                                      Address = x.Address,
+                                      organizationimage = x.Organizationimage
+                                      
                                   }).FirstAsync();
             return Response;
         }
