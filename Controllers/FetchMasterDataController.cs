@@ -77,7 +77,7 @@ namespace HIMS_MASTERDATA.Controllers
         [EnableCors("AllowAllHeaders")]
         [HttpGet]
         [Route("[action]")]
-        // [Authorize]
+        [Authorize]
         public async Task<IEnumerable<CorporateVo>> GetCorporate(int Id)
         {
             return await _repository.GetCorporate(Id);
@@ -125,11 +125,18 @@ namespace HIMS_MASTERDATA.Controllers
         {
             return await _repository.getpatientdetails(mobilenumber, OrganizationId);
         }
-
         [EnableCors("AllowAllHeaders")]
         [HttpGet]
         [Route("[action]")]
         [Authorize]
+        public async Task<List<PatientVo>> GetpatientDetailsForBilling(string mobilenumber, int OrganizationId)
+        {
+            return await _repository.GetpatientDetailsForBilling(mobilenumber, OrganizationId);
+        }
+        [EnableCors("AllowAllHeaders")]
+        [HttpGet]
+        [Route("[action]")]
+       [Authorize]
         public async Task<IEnumerable<PatientIdVo>> GetPatientDetailsbypid(long patientid)
         {
             return await _repository.GetPatientDetailsbypid(patientid);
@@ -156,7 +163,7 @@ namespace HIMS_MASTERDATA.Controllers
         [EnableCors("AllowAllHeaders")]
         [HttpGet]
         [Route("[action]")]
-        // [Authorize]
+        [Authorize]
         public async Task<IEnumerable<OrganizationVo>> GetOrganizations()
         {
             return await _repository.GetOrganizations();
@@ -541,7 +548,7 @@ namespace HIMS_MASTERDATA.Controllers
         [EnableCors("AllowAllHeaders")]
         [HttpGet]
         [Route("[action]")]
-        // [Authorize]
+        [Authorize]
         public async Task<List<DoctorDashBoardVo>> GetDoctorDashBoardData(int OrgID, int FacID, int DoctorId)
         {
             return await _repository.GetDoctorDashBoardData(OrgID, FacID, DoctorId);
@@ -690,7 +697,7 @@ namespace HIMS_MASTERDATA.Controllers
         [EnableCors("AllowAllHeaders")]
         [HttpGet]
         [Route("[action]")]
-        //[Authorize]
+        [Authorize]
         public async Task<IEnumerable<GetFacilityTariffDatacs>> GetFaciltyTarifffDetails(int OrganizationId, int FacilityId)
         {
             var response = await _repository.GetFacilityTariffDetails(OrganizationId, FacilityId);
@@ -703,7 +710,7 @@ namespace HIMS_MASTERDATA.Controllers
         [HttpGet]
         [Route("[Action]")]
        
-        //[Authorize]
+        [Authorize]
         public async Task<IEnumerable<ChargeItemVo>> GetChargeItemDeatils()
             {
                 var response = await _repository.GetChargeItemDeatils();
@@ -727,9 +734,9 @@ namespace HIMS_MASTERDATA.Controllers
         }
         [EnableCors("AllowAllHeaders")]
         [HttpPost]
-        //[Authorize]
+        [Authorize]
         [Route("[Action]")]
-        //[Authorize]
+        [Authorize]
         public int SaveFacilityTariffDetails(List<FacilityChargeItemDetails> obj)
         {
             var response = _repository.SaveFacilityTariffDetails(obj);
@@ -738,9 +745,9 @@ namespace HIMS_MASTERDATA.Controllers
         }
         [EnableCors("AllowAllHeaders")]
         [HttpPost]
-        //[Authorize]
+        [Authorize]
         [Route("[Action]")]
-        //[Authorize]
+        [Authorize]
         public int UpdateFacilityTariffDetails(FacilityChargeItemDetails obj)
         {
             var response = _repository.UpdateFacilityTariffDetails(obj);
@@ -750,9 +757,9 @@ namespace HIMS_MASTERDATA.Controllers
 
         [EnableCors("AllowAllHeaders")]
         [HttpGet]
-        //[Authorize]
+        [Authorize]
         [Route("[Action]")]
-        //[Authorize]
+        [Authorize]
         public int RemoveFacilityTariffChargeId(int Id)
         {
             var response = _repository.RemoveFacilityTariffChargeId(Id);

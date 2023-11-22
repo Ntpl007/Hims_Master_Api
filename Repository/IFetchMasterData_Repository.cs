@@ -83,7 +83,7 @@ namespace HIMS_MASTERDATA.Repository
         public Task<List<CalendarSchedule>> GetExtraReScheduleDates(string selectedDate, int providerId, int FacilityId);
         public  Task<List<GetPatientDetailsbyAppointment>> GetPatientDatabyPatientTempID(int PatientTempId);
         public Task<decimal> GetConsultationAmount(int DoctorId, int Organizationd, int FacilityId, int ChargeItemId);
-
+        public Task<List<PatientVo>> GetpatientDetailsForBilling(string mobilenumber, int OrganizationId);
 
     }
 

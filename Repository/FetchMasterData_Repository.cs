@@ -212,6 +212,30 @@ namespace HIMS_MASTERDATA.Repository
             }
           
         }
+        public async Task<List<PatientVo>> GetpatientDetailsForBilling(string mobilenumber, int OrganizationId)
+        {
+            try
+            {
+                List<PatientVo> objlist = new List<PatientVo>();
+                {
+                    var mobile = new MySqlParameter
+                        ("mobile", mobilenumber);
+                    var _OrganizationId = new MySqlParameter
+                       ("OrganizationId", OrganizationId);
+                    using (var context = new StoreProceduresContext())
+                    {
+                        objlist = await context.GetpatientDetailsForBilling.FromSqlRaw("call GetpatientDetailsForBilling(@mobile,@OrganizationId)", mobile, _OrganizationId).ToListAsync();
+                    }
+                    return objlist;
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+        }
+        
         public async Task<IEnumerable<PatientIdVo>> GetPatientDetailsbypid(long patientid)
         {
 

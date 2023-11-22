@@ -33,6 +33,7 @@ namespace HIMS_MASTERDATA.StoreProcedures
         public virtual DbSet<GetExistedPatientAppointmentVocs> GetExistedPatientsForAppointment { get; set; }
         public virtual DbSet<AdminDashBoardVo> GetDashboardData { get; set; }
         public virtual DbSet<PatientVo> getpatientdetails { get; set; }
+        public virtual DbSet<PatientVo> GetpatientDetailsForBilling { get; set; }
         public virtual DbSet<PatientIdVo> GetPatientDetailsByID { get; set; }
         public virtual DbSet<GetExistedPatientAppointmentVocs> GetPatientDetailsForBinding { get; set; }
         public virtual DbSet<UserListVo> SP_GetUserList { get; set; }
